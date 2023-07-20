@@ -7,6 +7,7 @@
 #include <cstdlib> 
 #include <limits> 
 #include <memory>
+#include <stdlib.h>
 #include <vector>
 
 // Usings
@@ -28,6 +29,23 @@ inline double degrees_to_radians(double degrees) {
 inline double ffmin(double a, double b) { return a <= b ? a : b; }
 inline double ffmax(double a, double b) { return a >= b ? a : b; }
 
+inline double random_double(){
+
+    // Return a random_value in [0, 1)
+    return rand() / (RAND_MAX + 1.0);
+}
+
+inline double random_double(const double& min, const double& max){
+
+    // Return a random_value in [min, max)
+    return min + (max - min) * random_double();
+}
+
+inline double clamp(const double& x, const double& min, const double& max){
+
+    // Make x in [min, max]
+    return x < min ? min : (x > max ? max : x);
+}
 // Common Headers
 
 #include "ray.h"
