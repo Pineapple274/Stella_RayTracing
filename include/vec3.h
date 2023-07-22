@@ -130,4 +130,15 @@ inline vec3 random_in_unit_vector(){
     auto r = sqrt(1 - z * z);
     return vec3(r * cos(a), r * sin(a), z);
 }
+
+// An elder method of diffuse
+inline vec3 random_in_unit_hemisphere(const vec3& normal){
+    vec3 in_unit_sphere = random_in_unit_sphere();
+    if(dot(in_unit_sphere, normal) >= 0.0 ){
+        return  in_unit_sphere;
+    }
+    else {
+        return -in_unit_sphere;
+    }
+} 
 #endif
