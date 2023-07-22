@@ -48,7 +48,4 @@ inline double clamp(const double& x, const double& min, const double& max){
 }
 // Common Headers
 
-#include "ray.h"
-#include "vec3.h"
-
 #endif
